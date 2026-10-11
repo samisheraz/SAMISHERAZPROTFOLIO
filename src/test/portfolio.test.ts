@@ -11,8 +11,10 @@ describe("Portfolio factual constraints", () => {
   it("uses the supplied GitHub profile", () => {
     expect(profile.github).toBe("https://github.com/samisheraz");
   });
-  it("does not invent project repositories or real photographs", () => {
+  it("does not invent project links or real photographs", () => {
     expect(projects).toHaveLength(6);
-    expect(projects.every((project) => !project.repository && !project.image)).toBe(true);
+    expect(
+      projects.every((project) => !project.repository && !project.linkedinPost && !project.image),
+    ).toBe(true);
   });
 });
